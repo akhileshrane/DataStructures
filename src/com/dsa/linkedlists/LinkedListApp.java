@@ -39,6 +39,7 @@ public class LinkedListApp {
         list.reverse();
         System.out.println(list.print());
         
+        System.out.println(list.getKthFromEnd(4));
     }
     
     

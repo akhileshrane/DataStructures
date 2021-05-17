@@ -151,6 +151,33 @@ public class LinkedList {
       }
     }
     
+    public int getKthFromEnd(int k) {
+        if(k<0){
+            throw new NoSuchElementException();
+        } else if(k==0){
+            return last.value;
+        } else  if(k>=size) {
+            throw new NoSuchElementException();
+        } else {
+            var firstPointer = first;
+            var secondPointer = first;
+            for(int i = 0; i < k ; i++){
+                secondPointer = secondPointer.next;
+            }
+
+            while(secondPointer != null){
+                if(secondPointer == last){
+                    return firstPointer.value;
+                } else {
+                    secondPointer = secondPointer.next;
+                    firstPointer = firstPointer.next;                
+                }
+            }
+        }
+        return -1;       
+    }
+
+
     private boolean isEmpty(){
         return first == null;
     }
